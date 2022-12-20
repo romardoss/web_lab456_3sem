@@ -7,6 +7,7 @@
 */
 *{
     margin: 0;
+    font-weight: bold;
 }
 header{
     text-align: center;
@@ -31,11 +32,8 @@ div > div{
     min-height: 550px;
     display: none;
 }
-.test{
-    display: none;
-}
-.entering-form{
-    display: none;
+.entry-point{
+    display: inline-block;
 }
 h2{
     margin: 30px;
@@ -43,6 +41,6 @@ h2{
 input{
     margin: 20px;
 }
-.question-1{
-    display: inline-block;
+[type=button]{
+    width: 100px;
 }
