@@ -28,3 +28,18 @@ function prevPage(){
 function closePage(){
     close();
 }
+
+///////////////////////////////////////////////////
+let user;
+
+function makeUser(name, surname){
+    return {
+        name,
+        surname
+    }
+};
+
+function newTestUser(){
+    user = makeUser(document.getElementById('entryNameInput').value, );
+    alert(user.name + " " + user.surname);
+}
