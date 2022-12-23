@@ -22,53 +22,83 @@
         </div>
         <div id="page_1">
             <h2>Питання 1</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <h3>Для чого призначений grid?</h3>
+            <input type="radio" id="radio_1" name="radio_question">
+            <label for="radio_1">Для розмітки таблиці структури сайту</label> <br>
+            <input type="radio" id="radio_2" name="radio_question">
+            <label for="radio_2">Для керування властивостями шрифту</label> <br>
+            <input type="radio" id="radio_3" name="radio_question">
+            <label for="radio_3">Для розмальовування об'єктів</label> <br>
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_2">
             <h2>Питання 2</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <h3>У якому css параметрі знаходиться grid?</h3>
+            <input type="radio" id="radio_4" name="radio_question">
+            <label for="radio_4">display</label> <br>
+            <input type="radio" id="radio_5" name="radio_question">
+            <label for="radio_5">background</label> <br>
+            <input type="radio" id="radio_6" name="radio_question">
+            <label for="radio_6">margin</label> <br>
+            <input type="radio" id="radio_7" name="radio_question">
+            <label for="radio_7">font-style</label> <br>
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_3">
             <h2>Питання 3</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <h3>Які з властивостей стосуються grid?</h3>
+            <input type="checkbox" id="check_1" name="check_question">
+            <label for="check_1">align-content</label> <br>
+            <input type="checkbox" id="check_2" name="check_question">
+            <label for="check_2">justify-content</label> <br>
+            <input type="checkbox" id="check_3" name="check_question">
+            <label for="check_3">color</label> <br>
+            <input type="checkbox" id="check_4" name="check_question">
+            <label for="check_4">flex-direction</label> <br>
+            <input type="checkbox" id="check_5" name="check_question">
+            <label for="check_5">place-self</label> <br>
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_4">
             <h2>Питання 4</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <h3>Роставте відповідний блок на свою позицію в даний grid</h3>
+            <div class="drag-and-drop-question">
+                <div class="drag-and-drop-answers" id="drag-and-drop-answers">
+                    <p>.parent{<br>display: grid;<br>grid-template-areas: 'b1 b2' 'b3 b4';<br>
+                        gap:10px;<br>height: 450px;<br>width: 500px;<br>padding-top: 25px;<br>}</p>
+                </div>
+                <div class="template-grid" id="template-grid">
+                    <div class="block-1" id="block-1"></div>
+                    <div class="block-2" id="block-2"></div>
+                    <div class="block-3" id="block-3"></div>
+                    <div class="block-4" id="block-4"></div>
+                </div>
+            </div>
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_5">
             <h2>Питання 5</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_6">
             <h2>Питання 6</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_7">
             <h2>Питання 7</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_8">
             <h2>Питання 8</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_9">
             <h2>Питання 9</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_10">
             <h2>Питання 10</h2>
-            <input type="button" value="Назад" onclick="prevPage()">
-            <input type="button" value="Вперед" onclick="nextPage()">
+            <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_results">
             <h2>Твої результати:</h2>

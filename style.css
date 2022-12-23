@@ -32,6 +32,11 @@ div > div{
     min-height: 550px;
     display: none;
 }
+
+button{
+    margin: 10px;
+}
+
 .entry-point{
     display: inline-block;
 }
@@ -43,4 +48,58 @@ input{
 }
 [type=button]{
     width: 100px;
+}
+
+.drag-and-drop-question{
+    display: grid;
+    grid-template-areas: '. .';
+}
+
+.template-grid{
+    display: grid;
+    grid-template-areas: 'block1 block2' 'block3 block4';
+    background-color:#c2c9cf;
+    gap:10px;
+    min-height: 300px;
+    height: 450px;
+    width: 500px;
+    padding-top: 25px;
+}
+
+.drag-and-drop-answers{
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.block-1{
+    background-color:#add274;
+    grid-area: block1;
+    width: 150px;
+    min-height: 100px;
+    margin:0;
+}
+.block-2{
+    background-color:#7e685a;
+    grid-area: block2;
+    width: 300px;
+    min-height: 100px;
+    height: 200px;
+    margin:0;
+}
+.block-3{
+    background-color:#e7717d;
+    grid-area: block3;
+    width: 150px;
+    min-height: 100px;
+    height: 200px;
+    margin:0;
+}
+.block-4{
+    background-color: #add274;
+    grid-area: block4;
+    width: 300px;
+    min-height: 100px;
+    margin:0;
 }
