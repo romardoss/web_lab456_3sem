@@ -133,3 +133,65 @@ select{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.implement-css-question{
+    display: grid;
+    grid-template-areas: '. .';
+    gap: 0px;
+}
+.implement-css-answers{
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+.template-grid-css-implementation{
+    display: grid;
+    grid-template-areas: 'block5 block6' 'block7 block8';
+    background-color:#c2c9cf;
+    gap: 0px;
+    min-height: 300px;
+    height: 450px;
+    width: 500px;
+    padding: 25px;
+    margin: 50px;
+}
+.block-5{
+    background-color:#add274;
+    grid-area: block5;
+    width: 160px;
+    min-height: 100px;
+    margin:0;
+    padding: 0;
+}
+.block-6{
+    background-color:#7e685a;
+    grid-area: block6;
+    width: 300px;
+    min-height: 100px;
+    height: 200px;
+    margin:0;
+}
+.block-7{
+    background-color:#e7717d;
+    grid-area: block7;
+    width: 160px;
+    min-height: 100px;
+    height: 200px;
+    margin:0;
+}
+.block-8{
+    background-color: #add274;
+    grid-area: block8;
+    width: 300px;
+    min-height: 100px;
+    margin:0;
+}
+
+textarea{
+    width: 400px;
+    height: 250px;
+    margin-left: 30px;
+    color:#e7717d;
+    background-color: #c2c9cf;
+}

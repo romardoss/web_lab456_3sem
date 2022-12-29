@@ -25,6 +25,15 @@ function nextPage(){
         document.getElementById('block-3').style.display = 'inline-block';
         document.getElementById('block-4').style.display = 'inline-block';
     }
+    if(currentPageIndex == 7){
+        document.getElementById('implement-css-answers').style.display = 'inline-block';
+        document.getElementById('template-grid-css-implementation').style.display = 'inline-block';
+        document.getElementById('block-5').style.display = 'inline-block';
+        document.getElementById('block-6').style.display = 'inline-block';
+        document.getElementById('block-7').style.display = 'inline-block';
+        document.getElementById('block-8').style.display = 'inline-block';
+        implementCSS();
+    }
 }
 
 /*function prevPage(){
@@ -111,4 +120,14 @@ function handlerDrop(event){
     this.classList.remove("border-entering");
     dragItem.classList.add("draged");
     this.append(dragItem);
+}
+
+
+///////////////////////////////////////////////////
+//Питання з втіленням css коду
+function implementCSS(){
+    let newCSS = document.getElementById('textarea1').value;
+    //console.log(newCSS);
+    const gridToChange = document.getElementsByClassName('template-grid-css-implementation')[0];
+    gridToChange.style.cssText = `${newCSS}`;
 }
