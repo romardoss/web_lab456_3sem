@@ -1,4 +1,5 @@
 let currentPageIndex = 0;
+let score = 0;
 const page_0 = document.getElementById('page_0');
 const page_1 = document.getElementById('page_1');
 const page_2 = document.getElementById('page_2');
@@ -16,20 +17,23 @@ const pageList = [page_0, page_1, page_2, page_3, page_4, page_5, page_6, page_7
 let question1 = {
     1: "Для розмітки таблиці структури сайту",
     2: "Для керування властивостями шрифту",
-    3: "Для розмальовування об'єктів"
+    3: "Для розмальовування об'єктів",
+    answer: "Для розмітки таблиці структури сайту",
 }
 let question2 = {
     1: "display",
     2: "background",
     3: "margin",
-    4: "font-style"
+    4: "font-style",
+    answer: "display",
 }
 let question3 = {
     1: "align-content",
     2: "justify-content",
-    3: "color",
-    4: "flex-direction",
-    5: "place-self"
+    3: "place-self",
+    4: "color",
+    5: "flex-direction",
+    answer: ["align-content", "justify-content", "place-self"],
 }
 let question4 = {
     1: ".a{<br><p>grid-area: b1;</p>}<br>",
@@ -41,6 +45,26 @@ let question5 = {
     1: "Елемент має початок на першому рядку та кінець на третьому",
     2: "Елемент протяжністю від першого до третього рядка",
     3: "Елемент починаєтти у ься на першому рядку та має протяжність у два рядки"
+
+}
+let question6 = {
+    1: "Мати різні пристрої при собі, щоб запускати сайт на них",
+    2: "Інструмент для перевірки на різних пристроях у браузері",
+    3: "Завантажити кілька віртуальних машин, де віртуальні пристрої матимуть різні розміри екранів",
+    4: "Змінювати розміри вікна браузера",
+    answer: "Інструмент для перевірки на різних пристроях у браузері",
+}
+let question7 = {
+
+}
+let question8 = {
+
+}
+let question9 = {
+
+}
+let question10 = {
+
 }
 
 function generateQuestion1(){
@@ -113,10 +137,129 @@ function generateQuestion5(){
     label2.innerHTML = `${q[2]}`;
     label3.innerHTML = `${q[3]}`;
 }
+function generateQuestion6(){
+    const label1 = document.getElementById('for_radio_8');
+    const label2 = document.getElementById('for_radio_9');
+    const label3 = document.getElementById('for_radio_10');
+    const label4 = document.getElementById('for_radio_11');
+    let q = question6;
+    label1.innerHTML = `${q[1]}`
+    label2.innerHTML = `${q[2]}`
+    label3.innerHTML = `${q[3]}`
+    label4.innerHTML = `${q[4]}`
+}
+
+function checkAnswer1(){
+    const answer1 = document.getElementById('radio_1');
+    const answer2 = document.getElementById('radio_2');
+    const answer3 = document.getElementById('radio_3');
+    const allAnswers = [answer1, answer2, answer3];
+    for(i = 0; i < allAnswers.length; i++){
+        let element = allAnswers[i];
+        if(element.checked){
+            const name = document.getElementById(`for_${element.id}`);
+            if(name.innerHTML === question1.answer){
+                console.log("Correct!");
+                score++;
+            }
+            else{
+                console.log("Incorrect :(");
+            }
+            console.log(`Score: ${score}/${pageList.length-2}`);
+        }
+    }
+}
+function checkAnswer2(){
+    const answer1 = document.getElementById('radio_4');
+    const answer2 = document.getElementById('radio_5');
+    const answer3 = document.getElementById('radio_6');
+    const answer4 = document.getElementById('radio_7');
+    const allAnswers = [answer1, answer2, answer3, answer4];
+    for(i = 0; i < allAnswers.length; i++){
+        let element = allAnswers[i];
+        if(element.checked){
+            const name = document.getElementById(`for_${element.id}`);
+            if(name.innerHTML === question2.answer){
+                console.log("Correct!");
+                score++;
+            }
+            else{
+                console.log("Incorrect :(");
+            }
+            console.log(`Score: ${score}/${pageList.length-2}`);
+        }
+    }
+}
+function checkAnswer3(){
+    const answer1 = document.getElementById('check_1');
+    const answer2 = document.getElementById('check_2');
+    const answer3 = document.getElementById('check_3');
+    const answer4 = document.getElementById('check_4');
+    const answer5 = document.getElementById('check_5');
+    const allAnswers = [answer1, answer2, answer3, answer4, answer5];
+    let answer = true;
+    for(i = 0; i < allAnswers.length; i++){
+        const element = allAnswers[i];
+        const name = document.getElementById(`for_${element.id}`);
+        if(element.checked && question3.answer.includes(name.innerHTML)){
+            continue;
+        }
+        else if (element.checked){
+            answer = false;
+            break;
+        }
+        else if (!element.checked && question3.answer.includes(name.innerHTML)){
+            answer = false;
+            break;
+        }
+    }
+    if(answer){
+        console.log("Correct!");
+        score++;
+    }
+    else{
+        console.log("Incorrect :(");
+    }
+    console.log(`Score: ${score}/${pageList.length-2}`);
+}
+
+function checkAnswers(){
+    if(currentPageIndex == 1){
+        checkAnswer1();
+    }
+    else if(currentPageIndex == 2){
+        checkAnswer2();
+    }
+    else if(currentPageIndex == 3){
+        checkAnswer3();
+    }
+    else if(currentPageIndex == 4){
+        
+    }
+    else if(currentPageIndex == 5){
+        
+    }
+    else if(currentPageIndex == 6){
+        
+    }
+    else if(currentPageIndex == 7){
+        
+    }
+    else if(currentPageIndex == 8){
+        
+    }
+    else if(currentPageIndex == 9){
+        
+    }
+    else if(currentPageIndex == 10){
+        
+    }
+}
 
 
 
 function nextPage(){
+    checkAnswers();
     pageList[currentPageIndex].style.display = 'none';
     currentPageIndex++;
     pageList[currentPageIndex].style.display = 'inline-block';
@@ -135,6 +278,9 @@ function nextPage(){
     else if(currentPageIndex == 5){
         generateQuestion5();
     }
+    else if(currentPageIndex == 6){
+        generateQuestion6();
+    }
     if(currentPageIndex == 7){
         document.getElementById('implement-css-answers').style.display = 'inline-block';
         document.getElementById('template-grid-css-implementation').style.display = 'inline-block';
@@ -144,6 +290,7 @@ function nextPage(){
         document.getElementById('block-8').style.display = 'inline-block';
         implementCSS();
     }
+
 }
 
 /*function prevPage(){
