@@ -24,39 +24,39 @@
             <h2>Питання 1</h2>
             <h3>Для чого призначений grid?</h3>
             <input type="radio" id="radio_1" name="radio_question">
-            <label for="radio_1">Для розмітки таблиці структури сайту</label> <br>
+            <label for="radio_1" id="for_radio_1"></label> <br>
             <input type="radio" id="radio_2" name="radio_question">
-            <label for="radio_2">Для керування властивостями шрифту</label> <br>
+            <label for="radio_2" id="for_radio_2"></label> <br>
             <input type="radio" id="radio_3" name="radio_question">
-            <label for="radio_3">Для розмальовування об'єктів</label> <br>
+            <label for="radio_3" id="for_radio_3"></label> <br>
             <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_2">
             <h2>Питання 2</h2>
             <h3>У якому css параметрі знаходиться grid?</h3>
             <input type="radio" id="radio_4" name="radio_question">
-            <label for="radio_4">display</label> <br>
+            <label for="radio_4" id="for_radio_4"></label> <br>
             <input type="radio" id="radio_5" name="radio_question">
-            <label for="radio_5">background</label> <br>
+            <label for="radio_5" id="for_radio_5"></label> <br>
             <input type="radio" id="radio_6" name="radio_question">
-            <label for="radio_6">margin</label> <br>
+            <label for="radio_6" id="for_radio_6"></label> <br>
             <input type="radio" id="radio_7" name="radio_question">
-            <label for="radio_7">font-style</label> <br>
+            <label for="radio_7" id="for_radio_7"></label> <br>
             <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_3">
             <h2>Питання 3</h2>
             <h3>Які з властивостей стосуються grid?</h3>
             <input type="checkbox" id="check_1" name="check_question">
-            <label for="check_1">align-content</label> <br>
+            <label for="check_1" id="for_check_1"></label> <br>
             <input type="checkbox" id="check_2" name="check_question">
-            <label for="check_2">justify-content</label> <br>
+            <label for="check_2" id="for_check_2"></label> <br>
             <input type="checkbox" id="check_3" name="check_question">
-            <label for="check_3">color</label> <br>
+            <label for="check_3" id="for_check_3"></label> <br>
             <input type="checkbox" id="check_4" name="check_question">
-            <label for="check_4">flex-direction</label> <br>
+            <label for="check_4" id="for_check_4"></label> <br>
             <input type="checkbox" id="check_5" name="check_question">
-            <label for="check_5">place-self</label> <br>
+            <label for="check_5" id="for_check_5"></label> <br>
             <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_4">
@@ -73,22 +73,11 @@
                         <p>padding-top: 25px;</p>
                     }<br>
                     
-                        <div class="dragItem" data-item="1" draggable="true">.a{<br>
-                            <p>grid-area: b1;</p>}<br></div>
-
-                        <div class="dragItem" data-item="2" draggable="true">.b{<br>
-                            <p>grid-area: b2;</p>}<br></div>
-                        <div class="dragItem" data-item="3" draggable="true">
-                            .c{<br>
-                                <p>grid-area: b3;</p>}<br>
-                        </div>
-                        <div class="dragItem" data-item="4" draggable="true">
-                            .d{<br>
-                                <p>grid-area: b4;</p>}<br>
-                        </div>
+                        <div class="dragItem" id="drag1" data-item="1" draggable="true"></div>
+                        <div class="dragItem" id="drag2" data-item="2" draggable="true"></div>
+                        <div class="dragItem" id="drag3" data-item="3" draggable="true"></div>
+                        <div class="dragItem" id="drag4" data-item="4" draggable="true"></div>
                 </div>
-                
-                
 
                 <div class="template-grid" id="template-grid">
                     <div class="block-1" class="dropzone" data-zone="1" id="block-1"></div>
@@ -103,27 +92,12 @@
             <h2>Питання 5</h2>
             <h3>Оберіть найбільш точну відповідь з випадаючого списку:</h3>
             <br>
-            <label for="option-question1">Елемент має початок на першому рядку та кінець на третьому</label>
-            <select name="option-question1" id="option-question1">
-                <option value="none-option"></option>
-                <option value="grid-row-start-end">grid-row-start: 1; grid-row-end: 3;</option>
-                <option value="grid-row-/-">grid-row: 1 / 3;</option>
-                <option value="grid-row-/span">grid-row: 1 / span 2;</option>
-            </select><br>
-            <label for="option-question2">Елемент протяжністю від першого до третього рядка</label>
-            <select name="option-question2" id="option-question2">
-                <option value="none-option"></option>
-                <option value="grid-row-start-end">grid-row-start: 1; grid-row-end: 3;</option>
-                <option value="grid-row-/-">grid-row: 1 / 3;</option>
-                <option value="grid-row-/span">grid-row: 1 / span 2;</option>
-            </select><br>
-            <label for="option-question3">Елемент починаєтти у ься на першому рядку та має протяжність у два рядки</label>
-            <select name="option-question3" id="option-question3">
-                <option value="none-option"></option>
-                <option value="grid-row-start-end">grid-row-start: 1; grid-row-end: 3;</option>
-                <option value="grid-row-/-">grid-row: 1 / 3;</option>
-                <option value="grid-row-/span">grid-row: 1 / span 2;</option>
-            </select><br>
+            <label for="option-question1" id="for_option-question1"></label>
+            <select name="option-question1" id="option-question1"></select><br>
+            <label for="option-question2" id="for_option-question2"></label>
+            <select name="option-question2" id="option-question2"></select><br>
+            <label for="option-question3" id="for_option-question3"></label>
+            <select name="option-question3" id="option-question3"></select><br>
             <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_6">
