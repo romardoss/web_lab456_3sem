@@ -64,14 +64,37 @@
             <h3>Роставте відповідний блок на свою позицію в даний grid</h3>
             <div class="drag-and-drop-question">
                 <div class="drag-and-drop-answers" id="drag-and-drop-answers">
-                    <p>.parent{<br>display: grid;<br>grid-template-areas: 'b1 b2' 'b3 b4';<br>
-                        gap:10px;<br>height: 450px;<br>width: 500px;<br>padding-top: 25px;<br>}</p>
+                    .parent{<br>
+                        <p>display: grid;</p>
+                        <p>grid-template-areas: 'b1 b2' 'b3 b4';</p>
+                        <p>gap:10px;</p>
+                        <p>height: 450px;</p>
+                        <p>width: 500px;</p>
+                        <p>padding-top: 25px;</p>
+                    }<br>
+                    
+                        <div class="dragItem" data-item="1" draggable="true">.a{<br>
+                            <p>grid-area: b1;</p>}<br></div>
+
+                        <div class="dragItem" data-item="2" draggable="true">.b{<br>
+                            <p>grid-area: b2;</p>}<br></div>
+                        <div class="dragItem" data-item="3" draggable="true">
+                            .c{<br>
+                                <p>grid-area: b3;</p>}<br>
+                        </div>
+                        <div class="dragItem" data-item="4" draggable="true">
+                            .d{<br>
+                                <p>grid-area: b4;</p>}<br>
+                        </div>
                 </div>
+                
+                
+
                 <div class="template-grid" id="template-grid">
-                    <div class="block-1" id="block-1"></div>
-                    <div class="block-2" id="block-2"></div>
-                    <div class="block-3" id="block-3"></div>
-                    <div class="block-4" id="block-4"></div>
+                    <div class="block-1" class="dropzone" data-zone="1" id="block-1"></div>
+                    <div class="block-2" class="dropzone" data-zone="2" id="block-2"></div>
+                    <div class="block-3" class="dropzone" data-zone="3" id="block-3"></div>
+                    <div class="block-4" class="dropzone" data-zone="4" id="block-4"></div>
                 </div>
             </div>
             <button onclick="nextPage();">Далі</button>

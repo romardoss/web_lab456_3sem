@@ -49,5 +49,65 @@ function makeUser(name, surname){
 
 function newTestUser(){
     user = makeUser(document.getElementById('entryNameInput').value, );
-    alert(user.name + " " + user.surname);
+    //alert(user.name + " " + user.surname);
+}
+
+
+////////////////////////////////////////////////////
+//Реалізація drag and drop
+const dragItems = document.querySelectorAll(".dragItem");
+
+const block1 = document.querySelector(".block-1");
+const block2 = document.querySelector(".block-2");
+const block3 = document.querySelector(".block-3");
+const block4 = document.querySelector(".block-4");
+const dropZones = [block1, block2, block3, block4];
+
+
+dragItems.forEach(dragItems => {
+    dragItems.addEventListener('dragstart', handlerDragStart);
+    dragItems.addEventListener('dragend', handlerDragEnd);
+    dragItems.addEventListener('drag', handlerDrag);
+})
+
+dropZones.forEach(dropZones => {
+    dropZones.addEventListener('dragenter', handlerDragEnter);
+    dropZones.addEventListener('dragleave', handlerDragLeave);
+    dropZones.addEventListener('dragover', handlerDragOver);
+    dropZones.addEventListener('drop', handlerDrop);
+})
+
+function handlerDragStart(event){
+    event.dataTransfer.setData("dragItem", this.dataset.item);
+    this.classList.add("dragging");
+}
+
+function handlerDragEnd(event){
+    this.classList.remove("dragging");
+}
+
+function handlerDrag(event){
+    //console.log("drag");
+}
+
+function handlerDragEnter(event){
+    event.preventDefault();
+    this.classList.add("border-entering");
+}
+
+function handlerDragLeave(event){
+    this.classList.remove("border-entering");
+}
+
+function handlerDragOver(event){
+    event.preventDefault();
+    //console.log("over");
+}
+
+function handlerDrop(event){
+    const dragFlag = event.dataTransfer.getData("dragItem");
+    const dragItem = document.querySelector(`[data-item="${dragFlag}"]`)
+    //console.log("drop");
+    dragItem.classList.add("draged");
+    this.append(dragItem);
 }

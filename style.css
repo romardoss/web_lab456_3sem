@@ -76,7 +76,7 @@ input{
 .block-1{
     background-color:#add274;
     grid-area: block1;
-    width: 150px;
+    width: 160px;
     min-height: 100px;
     margin:0;
 }
@@ -91,7 +91,7 @@ input{
 .block-3{
     background-color:#e7717d;
     grid-area: block3;
-    width: 150px;
+    width: 160px;
     min-height: 100px;
     height: 200px;
     margin:0;
@@ -102,4 +102,29 @@ input{
     width: 300px;
     min-height: 100px;
     margin:0;
+}
+
+.dragItem{
+    display: inline-block;
+    min-width: none;
+    width: 150px;
+    min-height: 50px;
+    margin: 10px;
+    padding: 10px;
+    border: solid 1px black;
+    text-align: left;
+}
+
+.draged{
+    border: 0px;
+    background-color: transparent;
+}
+.dragging{
+    opacity: 0.5;
+}
+.border-entering{
+    border: 2px solid black;
+}
+p{
+    text-indent: 15px;
 }
