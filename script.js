@@ -108,6 +108,7 @@ function handlerDrop(event){
     const dragFlag = event.dataTransfer.getData("dragItem");
     const dragItem = document.querySelector(`[data-item="${dragFlag}"]`)
     //console.log("drop");
+    this.classList.remove("border-entering");
     dragItem.classList.add("draged");
     this.append(dragItem);
 }
