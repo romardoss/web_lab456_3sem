@@ -54,51 +54,19 @@ let question6 = {
     4: "Змінювати розміри вікна браузера",
     answer: "Інструмент для перевірки на різних пристроях у браузері",
 }
-let question7 = {
 
-}
-let question8 = {
-
-}
-let question9 = {
-
-}
-let question10 = {
-
-}
-
-function generateQuestion1(){
-    const label1 = document.getElementById('for_radio_1');
-    const label2 = document.getElementById('for_radio_2');
-    const label3 = document.getElementById('for_radio_3');
-    let q = question1;
-    label1.innerHTML = `${q[1]}`
-    label2.innerHTML = `${q[2]}`
-    label3.innerHTML = `${q[3]}`
-}
-function generateQuestion2(){
-    const label1 = document.getElementById('for_radio_4');
-    const label2 = document.getElementById('for_radio_5');
-    const label3 = document.getElementById('for_radio_6');
-    const label4 = document.getElementById('for_radio_7');
-    let q = question2;
-    label1.innerHTML = `${q[1]}`
-    label2.innerHTML = `${q[2]}`
-    label3.innerHTML = `${q[3]}`
-    label4.innerHTML = `${q[4]}`
+function generateRadioQuestion(labels, question){
+    for(i = 0; i < labels.length; i++){
+        labels[i].innerHTML = `${question[i+1]}`;
+    }
 }
 function generateQuestion3(){
-    const label1 = document.getElementById('for_check_1');
-    const label2 = document.getElementById('for_check_2');
-    const label3 = document.getElementById('for_check_3');
-    const label4 = document.getElementById('for_check_4');
-    const label5 = document.getElementById('for_check_5');
-    let q = question3;
-    label1.innerHTML = `${q[1]}`
-    label2.innerHTML = `${q[2]}`
-    label3.innerHTML = `${q[3]}`
-    label4.innerHTML = `${q[4]}`
-    label5.innerHTML = `${q[5]}`
+    const q = question3;
+    document.getElementById('for_check_1').innerHTML = `${q[1]}`
+    document.getElementById('for_check_2').innerHTML = `${q[2]}`
+    document.getElementById('for_check_3').innerHTML = `${q[3]}`
+    document.getElementById('for_check_4').innerHTML = `${q[4]}`
+    document.getElementById('for_check_5').innerHTML = `${q[5]}`
 }
 function generateQuestion4(){
     document.getElementById('drag-and-drop-answers').style.display = 'inline-block';
@@ -107,99 +75,61 @@ function generateQuestion4(){
     document.getElementById('block-2').style.display = 'inline-block';
     document.getElementById('block-3').style.display = 'inline-block';
     document.getElementById('block-4').style.display = 'inline-block';
-
-    const label1 = document.getElementById('drag1');
-    const label2 = document.getElementById('drag2');
-    const label3 = document.getElementById('drag3');
-    const label4 = document.getElementById('drag4');
-    let q = question4;
-    label1.innerHTML = `${q[1]}`
-    label2.innerHTML = `${q[2]}`
-    label3.innerHTML = `${q[3]}`
-    label4.innerHTML = `${q[4]}`
+    const q = question4;
+    document.getElementById('drag1').innerHTML = `${q[1]}`
+    document.getElementById('drag2').innerHTML = `${q[2]}`
+    document.getElementById('drag3').innerHTML = `${q[3]}`
+    document.getElementById('drag4').innerHTML = `${q[4]}`
 }
 function generateQuestion5(){
     const options = `<option value="none-option"></option>
     <option value="grid-row-start-end">grid-row-start: 1; grid-row-end: 3;</option>
     <option value="grid-row-/-">grid-row: 1 / 3;</option>
     <option value="grid-row-/span">grid-row: 1 / span 2;</option>`;
-    const select1 = document.getElementById('option-question1');
-    const select2 = document.getElementById('option-question2');
-    const select3 = document.getElementById('option-question3');
-    const label1 = document.getElementById('for_option-question1');
-    const label2 = document.getElementById('for_option-question2');
-    const label3 = document.getElementById('for_option-question3');
-    let q = question5;
-    select1.innerHTML = options;
-    select2.innerHTML = options;
-    select3.innerHTML = options;
-    label1.innerHTML = `${q[1]}`;
-    label2.innerHTML = `${q[2]}`;
-    label3.innerHTML = `${q[3]}`;
-}
-function generateQuestion6(){
-    const label1 = document.getElementById('for_radio_8');
-    const label2 = document.getElementById('for_radio_9');
-    const label3 = document.getElementById('for_radio_10');
-    const label4 = document.getElementById('for_radio_11');
-    let q = question6;
-    label1.innerHTML = `${q[1]}`
-    label2.innerHTML = `${q[2]}`
-    label3.innerHTML = `${q[3]}`
-    label4.innerHTML = `${q[4]}`
+    const q = question5;
+    document.getElementById('option-question1').innerHTML = options;
+    document.getElementById('option-question2').innerHTML = options;
+    document.getElementById('option-question3').innerHTML = options;
+    document.getElementById('for_option-question1').innerHTML = `${q[1]}`;
+    document.getElementById('for_option-question2').innerHTML = `${q[2]}`;
+    document.getElementById('for_option-question3').innerHTML = `${q[3]}`;
 }
 
-function checkAnswer1(){
-    const answer1 = document.getElementById('radio_1');
-    const answer2 = document.getElementById('radio_2');
-    const answer3 = document.getElementById('radio_3');
-    const allAnswers = [answer1, answer2, answer3];
-    for(i = 0; i < allAnswers.length; i++){
-        let element = allAnswers[i];
+function generateResults(){
+    const results = document.getElementById('results');
+    results.innerHTML = `Твої результати: ${score}`
+}
+
+function logAnswerResult(isCorrect){
+    if(isCorrect){
+        score++;
+    }
+    console.log(`Score: ${score}/${pageList.length-2}`);
+}
+
+function checkRadioQuestion(elementsIndexes, question){
+    let answers = [];
+    for(i = 0; i < elementsIndexes.length; i++){
+        answers.push(document.getElementById(`radio_${elementsIndexes[i]}`));
+    }
+    for(i = 0; i < answers.length; i++){
+        let element = answers[i];
         if(element.checked){
             const name = document.getElementById(`for_${element.id}`);
-            if(name.innerHTML === question1.answer){
-                console.log("Correct!");
-                score++;
-            }
-            else{
-                console.log("Incorrect :(");
-            }
-            console.log(`Score: ${score}/${pageList.length-2}`);
+            name.innerHTML === question.answer ? logAnswerResult(true) : logAnswerResult(false);
+            break;
         }
     }
 }
-function checkAnswer2(){
-    const answer1 = document.getElementById('radio_4');
-    const answer2 = document.getElementById('radio_5');
-    const answer3 = document.getElementById('radio_6');
-    const answer4 = document.getElementById('radio_7');
-    const allAnswers = [answer1, answer2, answer3, answer4];
-    for(i = 0; i < allAnswers.length; i++){
-        let element = allAnswers[i];
-        if(element.checked){
-            const name = document.getElementById(`for_${element.id}`);
-            if(name.innerHTML === question2.answer){
-                console.log("Correct!");
-                score++;
-            }
-            else{
-                console.log("Incorrect :(");
-            }
-            console.log(`Score: ${score}/${pageList.length-2}`);
-        }
-    }
-}
+
 function checkAnswer3(){
-    const answer1 = document.getElementById('check_1');
-    const answer2 = document.getElementById('check_2');
-    const answer3 = document.getElementById('check_3');
-    const answer4 = document.getElementById('check_4');
-    const answer5 = document.getElementById('check_5');
-    const allAnswers = [answer1, answer2, answer3, answer4, answer5];
+    const answers = [];
+    for(i = 0; i < 5; i++){
+        answers.push(document.getElementById(`check_${i+1}`));
+    }
     let answer = true;
-    for(i = 0; i < allAnswers.length; i++){
-        const element = allAnswers[i];
+    for(i = 0; i < answers.length; i++){
+        const element = answers[i];
         const name = document.getElementById(`for_${element.id}`);
         if(element.checked && question3.answer.includes(name.innerHTML)){
             continue;
@@ -213,46 +143,76 @@ function checkAnswer3(){
             break;
         }
     }
-    if(answer){
-        console.log("Correct!");
-        score++;
+    answer ? logAnswerResult(true) : logAnswerResult(false);
+}
+
+function checkAnswer4(){
+    const answer1 = document.getElementById('block-1');
+    const answer2 = document.getElementById('block-2');
+    const answer3 = document.getElementById('block-3');
+    const answer4 = document.getElementById('block-4');
+    const dragBlock1 = document.getElementById('drag1');
+    const dragBlock2 = document.getElementById('drag2');
+    const dragBlock3 = document.getElementById('drag3');
+    const dragBlock4 = document.getElementById('drag4');
+    const q = question4;
+    if(answer1.contains(dragBlock1) 
+    && answer2.contains(dragBlock2) 
+    && answer3.contains(dragBlock3) 
+    && answer4.contains(dragBlock4)){
+        logAnswerResult(true);
     }
     else{
-        console.log("Incorrect :(");
+        logAnswerResult(false);
+    }
+}
+
+function checkAnswer5(){
+    
+}
+
+function checkAnswer7(){
+    const answer = document.getElementById('template-grid-css-implementation');
+    if(answer.style.display == 'grid'
+    && answer.style.backgroundColor == 'white'
+    && answer.style.width == '501px'
+    && answer.style.paddingBottom == '25px'
+    && answer.style.rowGap == '30px'
+    && answer.style.columnGap == '50px'){
+        console.log("Correct!");
+        score++;
     }
     console.log(`Score: ${score}/${pageList.length-2}`);
 }
 
+function checkAnswer8(){
+    console.log("Correct!");
+    score++;
+    console.log(`Score: ${score}/${pageList.length-2}`);
+    nextPage();
+}
+
 function checkAnswers(){
     if(currentPageIndex == 1){
-        checkAnswer1();
+        checkRadioQuestion([1, 2, 3], question1);
     }
     else if(currentPageIndex == 2){
-        checkAnswer2();
+        checkRadioQuestion([4, 5, 6, 7], question2);
     }
     else if(currentPageIndex == 3){
         checkAnswer3();
     }
     else if(currentPageIndex == 4){
-        
+        checkAnswer4();
     }
     else if(currentPageIndex == 5){
-        
+        //checkAnswer5();
     }
     else if(currentPageIndex == 6){
-        
+        checkRadioQuestion([8, 9, 10, 11], question6)
     }
     else if(currentPageIndex == 7){
-        
-    }
-    else if(currentPageIndex == 8){
-        
-    }
-    else if(currentPageIndex == 9){
-        
-    }
-    else if(currentPageIndex == 10){
-        
+        checkAnswer7();
     }
 }
 
@@ -264,10 +224,17 @@ function nextPage(){
     currentPageIndex++;
     pageList[currentPageIndex].style.display = 'inline-block';
     if(currentPageIndex == 1){
-        generateQuestion1();
+        generateRadioQuestion([document.getElementById('for_radio_1'),
+        document.getElementById('for_radio_2'),
+        document.getElementById('for_radio_3')],
+        question1);
     }
     else if (currentPageIndex == 2){
-        generateQuestion2();
+        generateRadioQuestion([document.getElementById('for_radio_4'),
+        document.getElementById('for_radio_5'),
+        document.getElementById('for_radio_6'),
+        document.getElementById('for_radio_7')],
+        question2);
     }
     else if (currentPageIndex == 3){
         generateQuestion3();
@@ -279,9 +246,13 @@ function nextPage(){
         generateQuestion5();
     }
     else if(currentPageIndex == 6){
-        generateQuestion6();
+        generateRadioQuestion([document.getElementById('for_radio_8'),
+        document.getElementById('for_radio_9'),
+        document.getElementById('for_radio_10'),
+        document.getElementById('for_radio_11')],
+        question6);
     }
-    if(currentPageIndex == 7){
+    else if(currentPageIndex == 7){
         document.getElementById('implement-css-answers').style.display = 'inline-block';
         document.getElementById('template-grid-css-implementation').style.display = 'inline-block';
         document.getElementById('block-5').style.display = 'inline-block';
@@ -290,17 +261,10 @@ function nextPage(){
         document.getElementById('block-8').style.display = 'inline-block';
         implementCSS();
     }
+    else if(currentPageIndex == 10){
+        generateResults();
+    }
 
-}
-
-/*function prevPage(){
-    pageList[currentPageIndex].style.display = 'none';
-    currentPageIndex--;
-    pageList[currentPageIndex].style.display = 'inline-block';
-}*/
-
-function closePage(){
-    close();
 }
 
 ///////////////////////////////////////////////////
@@ -333,7 +297,6 @@ const dropZones = [block1, block2, block3, block4];
 dragItems.forEach(dragItems => {
     dragItems.addEventListener('dragstart', handlerDragStart);
     dragItems.addEventListener('dragend', handlerDragEnd);
-    dragItems.addEventListener('drag', handlerDrag);
 })
 
 dropZones.forEach(dropZones => {
@@ -352,10 +315,6 @@ function handlerDragEnd(event){
     this.classList.remove("dragging");
 }
 
-function handlerDrag(event){
-    //console.log("drag");
-}
-
 function handlerDragEnter(event){
     event.preventDefault();
     this.classList.add("border-entering");
@@ -367,16 +326,15 @@ function handlerDragLeave(event){
 
 function handlerDragOver(event){
     event.preventDefault();
-    //console.log("over");
 }
 
 function handlerDrop(event){
     const dragFlag = event.dataTransfer.getData("dragItem");
     const dragItem = document.querySelector(`[data-item="${dragFlag}"]`)
-    //console.log("drop");
     this.classList.remove("border-entering");
     dragItem.classList.add("draged");
     this.append(dragItem);
+    
 }
 
 
@@ -388,3 +346,108 @@ function implementCSS(){
     const gridToChange = document.getElementsByClassName('template-grid-css-implementation')[0];
     gridToChange.style.cssText = `${newCSS}`;
 }
+
+
+////////////////////////////////////////////////////////////
+//відправка на пошту
+
+const nodemailer = require('nodemailer')
+
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: '',
+      pass: 'kpiweb2022',
+    },
+  });
+
+  transporter.sendMail({
+    from: '<webkpi21@gmail.com>',
+    to: 'romassuper@gmail.com',
+    subject: 'Sending test',
+    text: 'test',
+    html: 'test',
+  });
+
+  function SendResults(){
+    alert('in developing');
+    sendToTelegram();
+    
+}
+
+
+///////////////////////////////////////////////////////////
+//Відправка у телеграм
+
+const form = document.getElementById('send-results-button');
+function toJSONString() {
+  var obj = {}
+  obj[score] = score;
+  return JSON.stringify(obj)
+}
+
+function sendToTelegram(){
+    //получаем данные из формы
+    const json = toJSONString()
+    //создаем соединение
+    const formReq = new XMLHttpRequest()
+    formReq.open('POST', '/telegram', true)
+    //обрабатываем ответ сервера
+    formReq.onload = function(oEvent) {
+      if (formReq.status === 200) {
+        alert("Success!");
+      }
+      if (formReq.status !== 200) {
+        alert("Error(");
+      }
+    }
+    ////////////////////////////
+    ////////////////////////////
+    formReq.setRequestHeader('Content-Type', 'application/json')
+    //отправляем
+    formReq.send(json)
+}
+
+//Я вынес логику обработки данных в отдельный файл
+const ctrlTelegram = require('../api/telegramMsg');
+router.post('/telegram', ctrlTelegram.sendMsg);
+
+module.exports.sendMsg = (req, res) => {
+    //токен и id чата берутся из config.json
+    const config = require('../config/config.json');
+    let http = require('request')
+    let reqBody = req.body
+    //каждый элемент обьекта запихиваем в массив
+    let fields = [
+      '<b>Name</b>: ' + reqBody.name,
+      '<b>Email</b>: ' + reqBody.email,
+      reqBody.text
+    ]
+    let msg = ''
+    //проходимся по массиву и склеиваем все в одну строку
+    fields.forEach(field => {
+      msg += field + '\n'
+    });
+    //кодируем результат в текст, понятный адресной строке
+    msg = encodeURI(msg)
+    //делаем запрос
+    http.post(`https://api.telegram.org/bot${config.telegram.token}/sendMessage?chat_id=${config.telegram.chat}&parse_mode=html&text=${msg}`, function (error, response, body) {  
+      //не забываем обработать ответ
+      console.log('error:', error); 
+      console.log('statusCode:', response && response.statusCode); 
+      console.log('body:', body); 
+      if(response.statusCode===200){
+        res.status(200).json({status: 'ok', message: 'Успешно отправлено!'});
+      }
+      if(response.statusCode!==200){
+        res.status(400).json({status: 'error', message: 'Произошла ошибка!'});
+      }
+    });
+  }
+
+  const config = {
+    "telegram": {
+      "token": "bot_token",
+      "chat": "chat_id"
+    }
+  }

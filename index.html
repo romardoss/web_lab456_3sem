@@ -18,7 +18,7 @@
             <input type="text" name="name" id="entryNameInput"> <br>
             <label name="group">Група</label>
             <input type="text" name="group"> <br>
-            <input type="submit" value="Почати тест" onclick="nextPage(); newTestUser();">
+            <button onclick="nextPage(); newTestUser();">Почати тест</button>
         </div>
         <div id="page_1">
             <h2>Питання 1</h2>
@@ -73,10 +73,10 @@
                         <p>padding-top: 25px;</p>
                     }<br>
                     
-                        <div class="dragItem" id="drag1" data-item="1" draggable="true"></div>
-                        <div class="dragItem" id="drag2" data-item="2" draggable="true"></div>
-                        <div class="dragItem" id="drag3" data-item="3" draggable="true"></div>
-                        <div class="dragItem" id="drag4" data-item="4" draggable="true"></div>
+                        <div class="dragItem" id="drag3" data-item="1" draggable="true"></div>
+                        <div class="dragItem" id="drag1" data-item="2" draggable="true"></div>
+                        <div class="dragItem" id="drag4" data-item="3" draggable="true"></div>
+                        <div class="dragItem" id="drag2" data-item="4" draggable="true"></div>
                 </div>
 
                 <div class="template-grid" id="template-grid">
@@ -116,7 +116,7 @@
         </div>
         <div id="page_7">
             <h2>Питання 7</h2>
-            <h3>Пропишіть горизонтальні відступи між елементами 30 пікселів, вертикальні 50 пікселів та виправте помилки</h3>
+            <h3>Пропишіть відступи між рядками 30 пікселів, між стовпцями 50 пікселів та виправте помилки</h3>
             <div class="implement-css-question">
                 <div class="implement-css-answers" id="implement-css-answers">
                     .parent{<br>
@@ -146,7 +146,7 @@ padding-down: 25px;</textarea><br>
             <h2>Питання 8</h2>
             <h3>Для адаптивної верстки використовуються медіа запити?</h3>
             <button onclick="nextPage();">Ні</button>
-            <button onclick="nextPage();">Так</button>
+            <button onclick="checkAnswer8();">Так</button>
         </div>
         <div id="page_9">
             <h2>Питання 9</h2>
@@ -159,8 +159,8 @@ padding-down: 25px;</textarea><br>
             <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_results">
-            <h2>Твої результати:</h2>
-            <input type="submit" value="Окей, закрити сайт" onclick="closePage()">
+            <h2 id="results">Твої результати:</h2>
+            <input type="submit" id="send-results-button" value="Окей, відправити результати" onclick="SendResults()">
         </div>
    </div>
    <script src="script.js"></script>

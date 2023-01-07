@@ -34,7 +34,10 @@ div > div{
 }
 
 button{
-    margin: 10px;
+    margin: 20px;
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
 }
 
 .entry-point{
@@ -45,9 +48,6 @@ h2{
 }
 input{
     margin: 20px;
-}
-[type=button]{
-    width: 100px;
 }
 
 .drag-and-drop-question{
