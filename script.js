@@ -383,10 +383,15 @@ function implementCSS(){
 //Надсилання результатів
 
 function sendResults(){
-    const message = `Ім'я: ${user.name}
+    const messageTelegram = `Ім'я: ${user.name}
 Група: ${user.group}
 Оцінка: ${score}/${pageList.length-2}`
-    sendEmail(message);
-    sendTelegram(message);
+
+    const messageEmail = `Ім'я: ${user.name}<br>
+Група: ${user.group}<br>
+Оцінка: ${score}/${pageList.length-2}`
+
+    sendEmail(messageEmail);
+    sendTelegram(messageTelegram);
     alert('Успішно відправлено!');
 }
