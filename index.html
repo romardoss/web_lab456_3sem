@@ -17,8 +17,8 @@
             <label name="name">Ім'я</label>
             <input type="text" name="name" id="entryNameInput"> <br>
             <label name="group">Група</label>
-            <input type="text" name="group"> <br>
-            <button onclick="nextPage(); newTestUser();">Почати тест</button>
+            <input type="text" name="group" id="entryGroupInput"> <br>
+            <button onclick="newTestUser();">Почати тест</button>
         </div>
         <div id="page_1">
             <h2>Питання 1</h2>
@@ -173,15 +173,28 @@ padding-down: 25px;</textarea><br>
         </div>
    </div>
    <script src="https://smtpjs.com/v3/smtp.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
    <script>
-        function sendEmail(){
+        function sendEmail(messageText){
             Email.send({
-            SecureToken: "7bd29482-4e14-4d4f-930f-25c32e359d34",
-            To : 'roman.berehun@gmail.com',
-            From : "romassuper@gmail.com",
-            Subject : "Test Results",
-            Body : "test"
-            }).then(message => alert(message));
+                SecureToken: "7bd29482-4e14-4d4f-930f-25c32e359d34",
+                To : 'roman.berehun@gmail.com',
+                From : "romassuper@gmail.com",
+                Subject : "Test Results",
+                Body : messageText,
+            });
+        }
+
+        function sendTelegram(messageText){
+            const TOKEN = '1858844290:AAG4xVcUFcD6nNnKqz1biKvcGrhwNCsOHMk';
+            const CHAT = '-519873227';
+            const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+            axios.post(URI_API, {
+                chat_id: CHAT,
+                parse_mode: 'html',
+                text: messageText,
+            });
         }
    </script>
    <script src="script.js"></script>

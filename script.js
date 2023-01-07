@@ -292,16 +292,26 @@ function nextPage(){
 ///////////////////////////////////////////////////
 let user;
 
-function makeUser(name, surname){
+function makeUser(name, group){
     return {
         name,
-        surname
+        group
     }
 };
 
 function newTestUser(){
-    user = makeUser(document.getElementById('entryNameInput').value, );
-    //alert(user.name + " " + user.surname);
+    const name = document.getElementById('entryNameInput').value;
+    const group = document.getElementById('entryGroupInput').value;
+    if(name.length >=2 && group.length >= 4){
+        user = makeUser(name, group);
+        nextPage(); 
+    }
+    else if(name.length < 2){
+        alert('Ім\'я надто коротке');
+    }
+    else if(group.length < 4){
+        alert('Назва групи надто коротка');
+    }
 }
 
 
@@ -373,5 +383,10 @@ function implementCSS(){
 //Надсилання результатів
 
 function sendResults(){
-    sendEmail();
+    const message = `Ім'я: ${user.name}
+Група: ${user.group}
+Оцінка: ${score}/${pageList.length-2}`
+    sendEmail(message);
+    sendTelegram(message);
+    alert('Успішно відправлено!');
 }
