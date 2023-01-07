@@ -44,8 +44,10 @@ let question4 = {
 let question5 = {
     1: "Елемент має початок на першому рядку та кінець на третьому",
     2: "Елемент протяжністю від першого до третього рядка",
-    3: "Елемент починаєтти у ься на першому рядку та має протяжність у два рядки"
-
+    3: "Елемент починаєтти у ься на першому рядку та має протяжність у два рядки",
+    'opt1': 'grid-row-start: 1; grid-row-end: 3;',
+    'opt2': 'grid-row: 1 / 3;',
+    'opt3': 'grid-row: 1 / span 2;',
 }
 let question6 = {
     1: "Мати різні пристрої при собі, щоб запускати сайт на них",
@@ -82,11 +84,11 @@ function generateQuestion4(){
     document.getElementById('drag4').innerHTML = `${q[4]}`
 }
 function generateQuestion5(){
-    const options = `<option value="none-option"></option>
-    <option value="grid-row-start-end">grid-row-start: 1; grid-row-end: 3;</option>
-    <option value="grid-row-/-">grid-row: 1 / 3;</option>
-    <option value="grid-row-/span">grid-row: 1 / span 2;</option>`;
     const q = question5;
+    const options = `<option value="none-option"></option>
+    <option value="grid-row-start-end">${q['opt1']}</option>
+    <option value="grid-row-/-">${q['opt2']}</option>
+    <option value="grid-row-/span">${q['opt3']}</option>`;
     document.getElementById('option-question1').innerHTML = options;
     document.getElementById('option-question2').innerHTML = options;
     document.getElementById('option-question3').innerHTML = options;
@@ -168,7 +170,19 @@ function checkAnswer4(){
 }
 
 function checkAnswer5(){
-    
+    const q = question5;
+    const selection1 = document.getElementById('option-question1');
+    const selection2 = document.getElementById('option-question2');
+    const selection3 = document.getElementById('option-question3');
+
+    if(selection1.options[selection1.selectedIndex].text == q['opt1']
+        && selection2.options[selection2.selectedIndex].text == q['opt2']
+        && selection3.options[selection3.selectedIndex].text == q['opt3']){
+            logAnswerResult(true);
+    }
+    else{
+        logAnswerResult(false);
+    }
 }
 
 function checkAnswer7(){
@@ -185,11 +199,13 @@ function checkAnswer7(){
     console.log(`Score: ${score}/${pageList.length-2}`);
 }
 
-function checkAnswer8(){
-    console.log("Correct!");
-    score++;
-    console.log(`Score: ${score}/${pageList.length-2}`);
-    nextPage();
+function checkAnswer9(){
+    document.getElementById('enter-the-word').value == 'media' ? logAnswerResult(true) : logAnswerResult(false);
+}
+
+function checkAnswer10(){
+    const selection = document.getElementById('select-media');
+    selection.options[selection.selectedIndex].text == 'min-width' ? logAnswerResult(true) : logAnswerResult(false);
 }
 
 function checkAnswers(){
@@ -206,13 +222,19 @@ function checkAnswers(){
         checkAnswer4();
     }
     else if(currentPageIndex == 5){
-        //checkAnswer5();
+        checkAnswer5();
     }
     else if(currentPageIndex == 6){
         checkRadioQuestion([8, 9, 10, 11], question6)
     }
     else if(currentPageIndex == 7){
         checkAnswer7();
+    }
+    else if(currentPageIndex == 9){
+        checkAnswer9();
+    }
+    else if(currentPageIndex == 10){
+        checkAnswer10();
     }
 }
 
@@ -261,7 +283,7 @@ function nextPage(){
         document.getElementById('block-8').style.display = 'inline-block';
         implementCSS();
     }
-    else if(currentPageIndex == 10){
+    else if(currentPageIndex == pageList.length-1){
         generateResults();
     }
 

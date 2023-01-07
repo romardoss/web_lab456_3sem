@@ -146,16 +146,25 @@ padding-down: 25px;</textarea><br>
             <h2>Питання 8</h2>
             <h3>Для адаптивної верстки використовуються медіа запити?</h3>
             <button onclick="nextPage();">Ні</button>
-            <button onclick="checkAnswer8();">Так</button>
+            <button onclick="logAnswerResult(true); nextPage()">Так</button>
         </div>
         <div id="page_9">
             <h2>Питання 9</h2>
-            <h3></h3>
+            <h3>Введіть назву параметру (без пробілів, маленькими буквами)</h3><br>
+            <p>&ltlink rel="stylesheet" 
+                <input type="text" class="enter-the-word" id="enter-the-word">="screen
+                and (min-width: 768px)" href="style-768.css"&gt</p>
             <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_10">
             <h2>Питання 10</h2>
-            <h3></h3>
+            <h3>Підключіть файл desktop.css для адаптивного дизайну на комп'ютерах</h3><br>
+            <p>&ltlink rel="stylesheet" 
+                media="screen and (<select id="select-media">
+                    <option></option>
+                    <option>min-width</option>
+                    <option>max-width</option>
+                </select> 1280px)" href="desktop.css"&gt</p>
             <button onclick="nextPage();">Далі</button>
         </div>
         <div id="page_results">

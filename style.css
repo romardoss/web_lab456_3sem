@@ -195,3 +195,9 @@ textarea{
     color:#e7717d;
     background-color: #c2c9cf;
 }
+
+.enter-the-word{
+    margin: 0;
+    width: 60px;
+    text-align: right;
+}
