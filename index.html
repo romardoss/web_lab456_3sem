@@ -169,9 +169,21 @@ padding-down: 25px;</textarea><br>
         </div>
         <div id="page_results">
             <h2 id="results">Твої результати:</h2>
-            <input type="submit" id="send-results-button" value="Окей, відправити результати" onclick="SendResults()">
+            <input type="submit" id="send-results-button" value="Окей, відправити результати" onclick="sendResults()">
         </div>
    </div>
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
+   <script>
+        function sendEmail(){
+            Email.send({
+            SecureToken: "7bd29482-4e14-4d4f-930f-25c32e359d34",
+            To : 'roman.berehun@gmail.com',
+            From : "romassuper@gmail.com",
+            Subject : "Test Results",
+            Body : "test"
+            }).then(message => alert(message));
+        }
+   </script>
    <script src="script.js"></script>
 </body>
 </html>
