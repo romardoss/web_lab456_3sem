@@ -1,18 +1,6 @@
 let currentPageIndex = 0;
 let score = 0;
-const page_0 = document.getElementById('page_0');
-const page_1 = document.getElementById('page_1');
-const page_2 = document.getElementById('page_2');
-const page_3 = document.getElementById('page_3');
-const page_4 = document.getElementById('page_4');
-const page_5 = document.getElementById('page_5');
-const page_6 = document.getElementById('page_6');
-const page_7 = document.getElementById('page_7');
-const page_8 = document.getElementById('page_8');
-const page_9 = document.getElementById('page_9');
-const page_10 = document.getElementById('page_10');
-const page_results = document.getElementById('page_results');
-const pageList = [page_0, page_1, page_2, page_3, page_4, page_5, page_6, page_7, page_8, page_9, page_10, page_results ]
+const pageList = document.querySelectorAll('.page');
 
 let question1 = {
     1: "Для розмітки таблиці структури сайту",
@@ -39,7 +27,7 @@ let question4 = {
     1: ".a{<br><p>grid-area: b1;</p>}<br>",
     2: ".b{<br><p>grid-area: b2;</p>}<br>",
     3: ".c{<br><p>grid-area: b3;</p>}<br>",
-    4: ".d{<br><p>grid-area: b4;</p>}<br>"
+    4: ".d{<br><p>grid-area: b4;</p>}<br>",
 }
 let question5 = {
     1: "Елемент має початок на першому рядку та кінець на третьому",
@@ -57,18 +45,32 @@ let question6 = {
     answer: "Інструмент для перевірки на різних пристроях у браузері",
 }
 
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
 function generateRadioQuestion(labels, question){
+    randomedIndexes = [];
     for(i = 0; i < labels.length; i++){
-        labels[i].innerHTML = `${question[i+1]}`;
+        randomedIndexes.push(i+1);
+    }
+    shuffleArray(randomedIndexes);
+    for(i = 0; i < labels.length; i++){
+        labels[i].innerHTML = `${question[randomedIndexes[i]]}`;
     }
 }
 function generateQuestion3(){
+    randomedIndexes = [1, 2, 3, 4, 5];
+    shuffleArray(randomedIndexes);
     const q = question3;
-    document.getElementById('for_check_1').innerHTML = `${q[1]}`
-    document.getElementById('for_check_2').innerHTML = `${q[2]}`
-    document.getElementById('for_check_3').innerHTML = `${q[3]}`
-    document.getElementById('for_check_4').innerHTML = `${q[4]}`
-    document.getElementById('for_check_5').innerHTML = `${q[5]}`
+    for(i = 0; i < 5; i++){
+        document.getElementById(`for_check_${i+1}`).innerHTML = `${q[randomedIndexes[i]]}`
+    }
 }
 function generateQuestion4(){
     document.getElementById('drag-and-drop-answers').style.display = 'inline-block';
@@ -78,23 +80,31 @@ function generateQuestion4(){
     document.getElementById('block-3').style.display = 'inline-block';
     document.getElementById('block-4').style.display = 'inline-block';
     const q = question4;
-    document.getElementById('drag1').innerHTML = `${q[1]}`
-    document.getElementById('drag2').innerHTML = `${q[2]}`
-    document.getElementById('drag3').innerHTML = `${q[3]}`
-    document.getElementById('drag4').innerHTML = `${q[4]}`
+    document.getElementById('drag1').innerHTML = `${q[1]}`;
+    document.getElementById('drag2').innerHTML = `${q[2]}`;
+    document.getElementById('drag3').innerHTML = `${q[3]}`;
+    document.getElementById('drag4').innerHTML = `${q[4]}`;
 }
 function generateQuestion5(){
+    randomedIndexes = [1, 2, 3];
+    shuffleArray(randomedIndexes);
     const q = question5;
     const options = `<option value="none-option"></option>
     <option value="grid-row-start-end">${q['opt1']}</option>
     <option value="grid-row-/-">${q['opt2']}</option>
     <option value="grid-row-/span">${q['opt3']}</option>`;
-    document.getElementById('option-question1').innerHTML = options;
+    for(i = 0; i < 3; i++){
+        document.getElementById(`option-question${i+1}`).innerHTML = options;
+    }
+    /*document.getElementById('option-question1').innerHTML = options;
     document.getElementById('option-question2').innerHTML = options;
-    document.getElementById('option-question3').innerHTML = options;
-    document.getElementById('for_option-question1').innerHTML = `${q[1]}`;
+    document.getElementById('option-question3').innerHTML = options;*/
+    for(i = 0; i < 3; i++){
+        document.getElementById(`for_option-question${i+1}`).innerHTML = `${q[randomedIndexes[i]]}`;
+    }
+    /*document.getElementById('for_option-question1').innerHTML = `${q[1]}`;
     document.getElementById('for_option-question2').innerHTML = `${q[2]}`;
-    document.getElementById('for_option-question3').innerHTML = `${q[3]}`;
+    document.getElementById('for_option-question3').innerHTML = `${q[3]}`;*/
 }
 
 function generateResults(){

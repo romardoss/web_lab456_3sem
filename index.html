@@ -12,7 +12,7 @@
         <h1>ТР-11 БЕРЕГУН РОМАН</h1>
     </header>
    <div class="main-grid">
-        <div id="page_0" class="entry-point">
+        <div id="page_0" class="entry-point page">
             <h2>Перед початком тесту:</h2>
             <label name="name">Ім'я</label>
             <input type="text" name="name" id="entryNameInput"> <br>
@@ -20,7 +20,7 @@
             <input type="text" name="group" id="entryGroupInput"> <br>
             <button onclick="newTestUser();">Почати тест</button>
         </div>
-        <div id="page_1">
+        <div id="page_1" class="page">
             <h2>Питання 1</h2>
             <h3>Для чого призначений grid?</h3>
             <input type="radio" id="radio_1" name="radio_question">
@@ -31,7 +31,7 @@
             <label for="radio_3" id="for_radio_3"></label> <br>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_2">
+        <div id="page_2" class="page">
             <h2>Питання 2</h2>
             <h3>У якому css параметрі знаходиться grid?</h3>
             <input type="radio" id="radio_4" name="radio_question">
@@ -44,7 +44,7 @@
             <label for="radio_7" id="for_radio_7"></label> <br>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_3">
+        <div id="page_3" class="page">
             <h2>Питання 3</h2>
             <h3>Які з властивостей стосуються grid?</h3>
             <input type="checkbox" id="check_1" name="check_question">
@@ -59,7 +59,7 @@
             <label for="check_5" id="for_check_5"></label> <br>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_4">
+        <div id="page_4" class="page">
             <h2>Питання 4</h2>
             <h3>Роставте відповідний блок на свою позицію в даний grid</h3>
             <div class="drag-and-drop-question">
@@ -88,7 +88,7 @@
             </div>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_5">
+        <div id="page_5" class="page">
             <h2>Питання 5</h2>
             <h3>Оберіть найбільш точну відповідь з випадаючого списку:</h3>
             <br>
@@ -100,7 +100,7 @@
             <select name="option-question3" id="option-question3"></select><br>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_6">
+        <div id="page_6" class="page">
             <h2>Питання 6</h2>
             <h3>Який найзручніший спосіб переглядати вигляд сайту на різних за 
                 величиною екранах для перевірки адаптивних властивостей?</h3>
@@ -114,7 +114,7 @@
             <label for="radio_11" id="for_radio_11"></label> <br>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_7">
+        <div id="page_7" class="page">
             <h2>Питання 7</h2>
             <h3>Пропишіть відступи між рядками 30 пікселів, між стовпцями 50 пікселів та виправте помилки</h3>
             <div class="implement-css-question">
@@ -142,13 +142,13 @@ padding-down: 25px;</textarea><br>
             </div>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_8">
+        <div id="page_8" class="page">
             <h2>Питання 8</h2>
             <h3>Для адаптивної верстки використовуються медіа запити?</h3>
             <button onclick="nextPage();">Ні</button>
             <button onclick="logAnswerResult(true); nextPage()">Так</button>
         </div>
-        <div id="page_9">
+        <div id="page_9" class="page">
             <h2>Питання 9</h2>
             <h3>Введіть назву параметру (без пробілів, маленькими буквами)</h3><br>
             <p>&ltlink rel="stylesheet" 
@@ -156,7 +156,7 @@ padding-down: 25px;</textarea><br>
                 and (min-width: 768px)" href="style-768.css"&gt</p>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_10">
+        <div id="page_10" class="page">
             <h2>Питання 10</h2>
             <h3>Підключіть файл desktop.css для адаптивного дизайну на комп'ютерах</h3><br>
             <p>&ltlink rel="stylesheet" 
@@ -167,7 +167,7 @@ padding-down: 25px;</textarea><br>
                 </select> 1280px)" href="desktop.css"&gt</p>
             <button onclick="nextPage();">Далі</button>
         </div>
-        <div id="page_results">
+        <div id="page_results" class="page">
             <h2 id="results">Твої результати:</h2>
             <input type="submit" id="send-results-button" value="Окей, відправити результати" onclick="sendResults()">
         </div>
